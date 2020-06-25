@@ -1,0 +1,31 @@
+{
+	"name": "@xutl/queue",
+	"version": "1.0.1",
+	"description": "Asynchronous Queue",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "xutltest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/xutl-es/queue.git"
+	},
+	"keywords": [
+		"XtremelyUsefulToolLibraries",
+		"Queue",
+		"Asynchronous"
+	],
+	"author": "XUTL <dev@xutl.es>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/xutl-es/queue/issues"
+	},
+	"homepage": "https://xutl.es",
+	"dependencies": {
+		"@xutl/defer": "~0.0.1 || ^1.0.0"
+	},
+	"devDependencies": {
+		"typescript": "^3.9.5",
+		"@xutl/defer": "~0.0.1 || ^1.0.0"
+	}
+}
