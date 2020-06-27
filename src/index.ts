@@ -13,6 +13,7 @@ export default class IQ<T> implements IterableQueue<T> {
 	#closed: boolean = false;
 	#error?: Error;
 	#flush = function flush(this: IQ<T>) {
+		if (this.#error) console.error;
 		if (this.#item && this.#error) {
 			this.#item.reject(this.#error);
 		}
@@ -33,6 +34,7 @@ export default class IQ<T> implements IterableQueue<T> {
 	}
 	error(error: Error) {
 		this.#error = error;
+		this.#flush.call(this);
 	}
 	async next() {
 		await this.#item;
