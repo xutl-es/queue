@@ -5,14 +5,14 @@ export interface Queue<T> {
 	error(error: Error): void;
 	done(): void;
 }
-export interface IterableQueue<T> extends AsyncIterableIterator<T>, Queue<T> {}
+export interface IterableQueueInterface<T> extends AsyncIterableIterator<T>, Queue<T> {}
 
-export default class IQ<T> implements IterableQueue<T> {
+export class IterableQueue<T> implements IterableQueueInterface<T> {
 	#queue: IteratorResult<T>[] = [];
 	#item?: Deferred<IteratorResult<T>>;
 	#closed: boolean = false;
 	#error?: Error;
-	#flush = function flush(this: IQ<T>) {
+	#flush = function flush(this: IterableQueue<T>) {
 		if (this.#error) console.error;
 		if (this.#item && this.#error) {
 			this.#item.reject(this.#error);
@@ -45,8 +45,8 @@ export default class IQ<T> implements IterableQueue<T> {
 	[Symbol.asyncIterator](): AsyncIterableIterator<T> {
 		return this;
 	}
-	static create<T>(): IterableQueue<T> {
-		const iq = new IQ<T>();
+	static create<T>(): IterableQueueInterface<T> {
+		const iq = new IterableQueue<T>();
 		iq.push = iq.push.bind(iq);
 		iq.done = iq.done.bind(iq);
 		iq.next = iq.next.bind(iq);
@@ -54,5 +54,10 @@ export default class IQ<T> implements IterableQueue<T> {
 		return iq;
 	}
 }
+export const queue = IterableQueue.create;
 
-export const queue = IQ.create;
+const Default = Object.freeze({
+	IterableQueue,
+	queue,
+});
+export default Default;

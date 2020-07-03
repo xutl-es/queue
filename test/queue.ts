@@ -1,5 +1,5 @@
 import { describe, it } from '@xutl/test';
-import assert from 'assert';
+import * as assert from 'assert';
 
 import { queue } from '../';
 
