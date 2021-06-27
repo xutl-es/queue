@@ -1,10 +1,13 @@
 import { IterableQueue, QueueInterface, IterableQueueInterface } from './queue';
 import { ThrottledQueue, ThrottledInterface, IterableThrottledInterface } from './throttled';
+import { Concur } from './concur';
 
 export { IterableQueue, QueueInterface, IterableQueueInterface };
 export { ThrottledQueue, ThrottledInterface, IterableThrottledInterface };
-export const queue = IterableQueue.create;
-export const throttled = ThrottledQueue.create;
+
+export const queue = IterableQueue.create.bind(IterableQueue);
+export const throttled = ThrottledQueue.create.bind(ThrottledQueue);
+export const concur = Concur.create.bind(Concur);
 
 export function merge<T>(items: AsyncIterable<T>[]): AsyncIterable<T> {
 	const result = queue<T>();
@@ -24,5 +27,7 @@ const Default = Object.freeze({
 	ThrottledQueue,
 	throttled,
 	merge,
+	concur,
+	Concur,
 });
 export default Default;

@@ -1,34 +1,34 @@
 {
-	"name": "@xutl/queue",
-	"version": "1.2.0",
-	"description": "Asynchronous Queue",
-	"main": "src/index.js",
-	"scripts": {
-		"test": "xutltest",
-		"build": "tsc",
-		"prepublishOnly": "npm run build"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/xutl-es/queue.git"
-	},
-	"keywords": [
-		"XtremelyUsefulToolLibraries",
-		"Queue",
-		"Asynchronous"
-	],
-	"author": "XUTL <dev@xutl.es>",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/xutl-es/queue/issues"
-	},
-	"homepage": "https://xutl.es",
-	"dependencies": {
-		"@xutl/defer": "~0.0.1 || ^1.0.0"
-	},
-	"devDependencies": {
-		"@types/node": "^14.0.14",
-		"@xutl/test": "^1.0.2",
-		"typescript": "^3.9.5"
-	}
+  "name": "@xutl/queue",
+  "version": "1.3.0",
+  "description": "Asynchronous Queue",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "xutltest",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xutl-es/queue.git"
+  },
+  "keywords": [
+    "XtremelyUsefulToolLibraries",
+    "Queue",
+    "Asynchronous"
+  ],
+  "author": "XUTL <dev@xutl.es>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xutl-es/queue/issues"
+  },
+  "homepage": "https://xutl.es",
+  "dependencies": {
+    "@xutl/defer": "~0.0.1 || ^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.14",
+    "@xutl/test": "^1.0.2",
+    "typescript": "^3.9.5"
+  }
 }
